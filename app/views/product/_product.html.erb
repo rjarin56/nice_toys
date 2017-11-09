@@ -1,7 +1,8 @@
-<div class="product">
-  <h1><%= product.product_name %></h1>
-  <p>In-Stock quantity: <%= product.stock_quantity %></p>
-  <p>Price: $<%= product.price %></p>
-  <p><%= product.description %></p>
-  <p><%= image_tag product.image %></p>
+<div class="list">
+  <tr>
+    <td><h1><%= link_to product.product_name, product_path(product) %></h1></td>
+    <td><%= link_to image_tag(product.image), product_path(product) %></td>
+    <td><p><%= product.stock_quantity %> left</p></td>
+    <td><p>Price: $<%= product.price %></p></td>
+  </tr>
 </div>
