@@ -4,6 +4,7 @@ class CategoryController < ApplicationController
   end
 
   def show
-    @category = Category.includes(:products).find(params[:id])
+    @products = Product.all
+    @category = Category.products.find(params[:id])
   end
 end
