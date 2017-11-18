@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'contact/index', to: 'contact#index', as: 'contact'
 
+  get 'category/index', to: 'category#index', as: 'category'
+
+  get 'category/:id', to: 'category#show', as: 'category', id: /\d+/
+
   get 'product/', to: 'product#index', as: 'product_index'
 
   get 'product/:id', to: 'product#show', as: 'product', id: /\d+/

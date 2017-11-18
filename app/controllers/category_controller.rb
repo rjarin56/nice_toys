@@ -1,5 +1,5 @@
 class CategoryController < ApplicationController
   def index
-    @categories = Category.includes(:products).all
+    @category = Category.includes(:products).all
   end
 end
