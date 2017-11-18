@@ -53,7 +53,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Nice Toys specific gem
+# Nice Toys specific gem
 
-gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'rubocop'
