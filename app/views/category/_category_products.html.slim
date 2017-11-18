@@ -1,8 +1,8 @@
 .product_by_category
   tr
     td
-      h1= link_to cat.product.product_name, product_path(product)
-    td= link_to image_tag(cat.product.image), product_path(product)
+      h1= link_to cat.product.product_name, product_path(cat.product)
+    td= link_to image_tag(cat.product.image), product_path(cat.product)
     td
       p
         = cat_products.stock_quantity
