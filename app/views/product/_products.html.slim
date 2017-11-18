@@ -1,0 +1,8 @@
+.products
+  h1= item.product_name
+  p
+    | In-Stock quantity: #{item.stock_quantity}
+  p
+    | Price: $#{item.price}
+  p= item.description
+  p= image_tag item.image
