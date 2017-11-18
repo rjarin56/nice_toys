@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'contact/index', to: 'contact#index', as: 'contact'
 
-  get 'category/index', to: 'category#index', as: 'category'
+  get 'category/index', to: 'category#index', as: 'category_index'
 
   get 'category/:id', to: 'category#show', as: 'category', id: /\d+/
 

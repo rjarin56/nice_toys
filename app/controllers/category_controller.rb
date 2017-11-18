@@ -1,5 +1,9 @@
 class CategoryController < ApplicationController
   def index
-    @category = Category.includes(:products).all
+    @categories = Category.order(:name)
+  end
+
+  def show
+    @category = Category.includes(:products).find(params[:id])
   end
 end
