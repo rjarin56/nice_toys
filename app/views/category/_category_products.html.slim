@@ -1,12 +1,12 @@
 .product_by_category
   tr
     td
-      h1= link_to cat.products.product_name, product_path(cat.products)
-    td= link_to image_tag(cat.products.image), product_path(cat.products)
+      h1= link_to item.product_name, product_path(item)
+    td= link_to image_tag(item.image), product_path(item)
     td
       p
-        = cat.products.stock_quantity
+        = item.stock_quantity
         | left
     td
       p
-        | Price: $#{category.products.price}
+        | Price: $#{item.price}
