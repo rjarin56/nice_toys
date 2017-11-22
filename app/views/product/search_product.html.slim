@@ -1,3 +1,8 @@
 h1 The result of your search
-= render partial: 'product', collection: @products
-= paginate @products
+- if @products.empty?
+  p
+    | There is no result for 
+    = @search
+- else
+  = render partial: 'product', collection: @products
+  = paginate @products

@@ -11,6 +11,7 @@ class ProductController < ApplicationController
 
   def search_product
     @products = Product.order([:product_name]).page(params[:page]).per(5).search(params[:search], params[:category])
+    @search = params[:search]
   end
 
 end
