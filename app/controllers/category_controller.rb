@@ -3,6 +3,7 @@ class CategoryController < ApplicationController
     @categories = Category.order(:name)
   end
   def show
-    @products = Product.where(:category_id => params[:id])
+    @products = Product.where(:category_id => params[:id]).
+                                  page(params[:page]).per(5)
   end
 end
