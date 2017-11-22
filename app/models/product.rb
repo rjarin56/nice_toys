@@ -3,12 +3,10 @@ class Product < ApplicationRecord
   validates :product_name, :category_id, :stock_quantity, presence: true
 
   def self.search(search, category)
-    if search
-      if category != ''
-        find(:all, :conditions => ['product_name LIKE ?', "%#{search}%"]).where(params[:category_id])
-      # else
-      #   find(:all)
-      end
+    if category != ''
+      where('product_name LIKE ?', "%#{search}%").where('category_id = ?', category)
+    else
+     where('product_name LIKE ?', "%#{search}%")
     end
   end
 end

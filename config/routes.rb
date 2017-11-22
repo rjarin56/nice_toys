@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'product/', to: 'product#index', as: 'product_index'
 
+  post 'product/search_product', to: 'product#search_product', as: 'search_product'
+
   get 'product/:id', to: 'product#show', as: 'product', id: /\d+/
 
   root to: 'home#index'
