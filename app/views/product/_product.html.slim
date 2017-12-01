@@ -1,12 +1,15 @@
-.list
-  tr
-    td
-      h1= link_to product.product_name, product_path(product)
-    td= link_to image_tag(product.image.url(:med)), product_path(product)
-    td
-      p
-        = product.stock_quantity
-        | left
-    td
-      p
-        | Price: $#{product.price}
+.card.product
+  .card-block
+    tr
+      td
+        h1.card-title= link_to product.product_name, product_path(product)
+      td= link_to image_tag(product.image.url(:med)), product_path(product), class: 'card-img-top img-fluid mx-auto d-block'
+      td
+        .card-block
+          p.card-text
+            = product.stock_quantity
+            |  left
+      td
+        .card-block
+          p.card-text
+            | Price: $#{product.price}
