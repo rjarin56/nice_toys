@@ -56,6 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Nice Toys specific gem
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'devise'
 gem 'kaminari'
 gem 'paperclip'
