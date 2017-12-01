@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122035156) do
+ActiveRecord::Schema.define(version: 20171201012625) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "details"
@@ -63,7 +63,26 @@ ActiveRecord::Schema.define(version: 20171122035156) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "full_name"
+    t.string "email"
+    t.string "phone_number"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
+  end
+
 # Could not dump table "products" because of following StandardError
 #   Unknown type 'attachment' for column 'image'
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "gst"
+    t.string "pst"
+    t.string "hst"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
