@@ -1,25 +1,22 @@
-nav.navbar.navbar-light.bg-faded
-  button.navbar-toggler.navbar-toggler-right[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
-    span.navbar-toggler-icon
+nav
   a.navbar-brand
     = image_tag('logo.png')
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item.active
-        = link_to 'Home', root_path
-      li.nav-item
-        = link_to 'Category', category_index_path
-      li.nav-item
-        = link_to 'Products', product_index_path
-      li.nav-item
-        = link_to 'Contacts', contact_path
-      li.nav-item
-        = link_to 'About us', about_path
-    form.form-inline.my-2.my-lg-0
-      = form_tag search_product_path method: :get do
-        = text_field_tag :search, params[:search], required: true
-        = select_tag(:category, options_for_select(@categories.map {|t| [t.name, t.id]}, params[:category]), {include_blank: "All"})
-        = submit_tag 'Search', :name => nil
+  ul.nav.nav-pills.nav-fill
+    li.nav-item
+      nav-link.active= link_to 'Home', root_path
+    li.nav-item
+      nav-link.active= link_to 'Category', category_index_path
+    li.nav-item
+      nav-link.active= link_to 'Products', product_index_path
+    li.nav-item
+      nav-link.active= link_to 'Contacts', contact_path
+    li.nav-item
+      nav-link.active= link_to 'About us', about_path
+  form.form-inline.my-2.my-lg-0
+    = form_tag search_product_path method: :get do
+      = text_field_tag :search, params[:search], required: true
+      = select_tag(:category, options_for_select(@categories.map {|t| [t.name, t.id]}, params[:category]), {include_blank: "All"})
+      = submit_tag 'Search', :name => nil
       / input.form-control.mr-sm-2[type="text" placeholder="Search"]
       / button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
       /   | Search

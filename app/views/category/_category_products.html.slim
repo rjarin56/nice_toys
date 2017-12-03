@@ -1,12 +1,15 @@
-.product_by_category
-  tr
-    td
-      h1= link_to item.product_name, product_path(item)
-    td= link_to image_tag(item.image), product_path(item)
-    td
-      p
-        = item.stock_quantity
-        | left
-    td
-      p
-        | Price: $#{item.price}
+.card.category
+  .card-block
+    tr
+      td
+        h1.card-title= link_to item.product_name, product_path(item)
+      td= link_to image_tag(item.image), product_path(item)
+      td
+        .card-block
+          p.card-text
+            = item.stock_quantity
+            | left
+      td
+        .card-block
+          p.card-text
+            | Price: $#{item.price}

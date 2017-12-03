@@ -1,6 +1,10 @@
-h1 Contacts
-- @contacts.each do |contact|
-  .contact
-    h2= contact.name
-    p= contact.phone_number
-    p= contact.email
+.contact-container
+  .heading
+    h1 Contacts
+  - @contacts.each do |contact|
+    .contact
+      address
+        strong= contact.name
+        p= contact.phone_number
+      address
+        p= contact.email

@@ -1,1 +1,74 @@
 @import "bootstrap";
+
+.container {
+  width: auto;
+  height: auto;
+  border-style: ridge;
+  border-color: blue;
+}
+
+.card-title h1 {
+  margin: auto;
+  font-size: 5px;
+}
+
+.heading {
+  font-style: oblique;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card.product {
+  border-style: ridge;
+  border-color: blue;
+  width: 315px;
+}
+
+.card.product a {
+  font-size: 25px;
+}
+
+.card.category a {
+  font-size: 25px;
+}
+
+.card.product img {
+  width: 150px;
+  height: 150px;
+  // margin: 0;
+}
+
+.card.category {
+  border-style: ridge;
+  border-color: blue;
+  width: 315px;
+}
+
+.card.category img {
+  width: 150px;
+  height: 150px;
+  // margin: 0;
+}
+
+.card-block {
+  width: auto;
+  height: auto;
+}
+
+.container.product-container.product-image {
+  width: 500px;
+  height: 500px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: left;
+}
+
+.container.product-container.order-wrapper {
+  width: 400px;
+  height: 400px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: right;
+}

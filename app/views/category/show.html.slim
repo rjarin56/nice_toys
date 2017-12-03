@@ -1,2 +1,8 @@
-= render partial: 'category_products', collection: @products, as: :item
-p= link_to 'Back', category_index_path
+.category-container
+  .heading
+    h2 Categories
+  .card-deck-wrapper
+    .card-deck
+      .card-columns
+        = render partial: 'category_products', collection: @products, as: :item
+  p= link_to 'Back', category_index_path

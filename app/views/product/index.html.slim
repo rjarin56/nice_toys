@@ -1,6 +1,8 @@
-h1 Products
-.card-deck-wrapper
-  .card-deck
-    .card-columns
-      = render partial: 'product', collection: @products
-      = paginate @products
+.product-container
+  .heading
+    h1 Products
+  .card-deck-wrapper
+    .card-deck
+      .card-columns
+        = render partial: 'product', collection: @products
+        = paginate @products
