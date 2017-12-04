@@ -1,7 +1,6 @@
 class ProductController < ApplicationController
   before_action :initialize_session
-  before_action :load_cart, only: [:show, :index]
-
+  before_action :load_cart, only: %I[show index]
 
   def index
     @products = Product.order([:product_name]).page(params[:page]).per(5)
@@ -12,7 +11,10 @@ class ProductController < ApplicationController
   end
 
   def search_product
-    @products = Product.order([:product_name]).page(params[:page]).per(5).search(params[:search], params[:category])
+    @products = Product.order([:product_name])
+                       .page(params[:page])
+                       .per(5).search(params[:search],
+                                      params[:category])
     @search = params[:search]
   end
 
@@ -30,7 +32,6 @@ class ProductController < ApplicationController
     redirect_to product_index_path, notice: 'Item has been removed from the cart.'
   end
 
-
   private
 
   def initialize_session
@@ -40,5 +41,4 @@ class ProductController < ApplicationController
   def load_cart
     @products_in_cart = session[:add_to_cart]
   end
-
 end

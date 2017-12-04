@@ -22,18 +22,18 @@ class CartController < ApplicationController
   end
 
   def invoice
-    name = params[:name]
-    email = params[:email]
-    phone_number = params[:phone_number]
-    address = params[:address]
-    city = params[:city]
-    province = params[:province]
-    postal_code = params[:postal_code]
-
-    session[:customer_data] = { name: name, email: email, phone_number: phone_number,
-                                address: address, city: city, province: province, postal_code: postal_code }
-    @province = Province.find(province)
+    @province = Province.find(params[:province])
     @products_in_cart = Product.find(session[:add_to_cart])
+    customer_data
+  end
+
+  def customer_data
+    session[:customer_data] = { name: params[:name],
+                                email: params[:email],
+                                phone_number: params[:phone_number],
+                                address: params[:address],
+                                city: params[:city],
+                                province: params[:province] }
   end
 
   def currency(amount)

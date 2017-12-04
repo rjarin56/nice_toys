@@ -1,4 +1,3 @@
 class Cart < ApplicationRecord
-  def index  
-  end
+  def index; end
 end
