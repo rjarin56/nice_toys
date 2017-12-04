@@ -1,5 +1,7 @@
 .product-container
   .heading
     h1 Products
+    .shopping-cart
+      = link_to 'Shopping Cart', cart_index_path
   = render partial: 'products', object: @product, as: :item
   p= link_to 'Back', product_index_path

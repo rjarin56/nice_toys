@@ -1,0 +1,46 @@
+class CartController < ApplicationController
+  def index
+    @products_in_cart = Product.find(session[:add_to_cart])
+  end
+
+  def remove_all_products_from_cart
+    session[:add_to_cart] = []
+
+    redirect_to cart_index_path, notice: 'Shopping Cart is now empty.'
+  end
+
+  def remove_product_from_cart
+    id = params[:id].to_i
+    # render html: "<script>alert('#{id}')</script>".html_safe
+    session[:add_to_cart].delete(id)
+
+    redirect_to cart_index_path, notice: 'Item has been removed from the cart.'
+  end
+
+  def customer
+    @province = Province.all
+  end
+
+  def invoice
+    name = params[:name]
+    email = params[:email]
+    phone_number = params[:phone_number]
+    address = params[:address]
+    city = params[:city]
+    province = params[:province]
+    postal_code = params[:postal_code]
+
+    session[:customer_data] = { name: name, email: email, phone_number: phone_number,
+                                address: address, city: city, province: province, postal_code: postal_code }
+    @province = Province.find(province)
+    @products_in_cart = Product.find(session[:add_to_cart])
+  end
+
+  def currency(amount)
+    format('$%.2f', amount.round(2))
+  end
+
+  # def update_quantity
+  #   # quantity =
+  # end
+end

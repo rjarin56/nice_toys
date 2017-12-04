@@ -14,6 +14,29 @@ Rails.application.routes.draw do
 
   get 'product/:id', to: 'product#show', as: 'product', id: /\d+/
 
+  # get 'cart/index', to: 'cart#index', as: 'cart_index'
+  get 'cart/customer', to: 'cart#customer', as: 'customer'
+
+  post 'cart/invoice', to: 'cart#invoice', as: 'invoice'
+
+  resources :product, only: [:index] do
+    member do
+      post :add_to_cart
+      post :remove_product_from_cart
+    end
+  end
+
+  resources :cart, only: [:index] do
+    member do
+      post :remove_product_from_cart
+      # post :update_quantity
+    end
+
+    collection do
+      post :remove_all_products_from_cart
+    end
+  end
+
   root to: 'home#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -1,0 +1,72 @@
+.heading
+  h1 Order Details
+.invoice
+  h2 Order Summary
+  strong Province:&nbsp;
+  strong= @province.name
+  - subTotal = 0
+  - pstAmount = 0
+  - gstAmount = 0
+  - hstAmount = 0
+  - grandTotal = 0
+  - pstTaxAmount = @province.pst.to_f * 100
+  - gstTaxAmount = @province.gst.to_f * 100
+  - hstTaxAmount = @province.hst.to_f * 100
+  table
+    - @products_in_cart.each do |p|
+      tr
+        th
+          = p.product_name
+        th
+        th
+          |$
+          = p.price
+          - subTotal += p.price.to_f
+    tr
+      td
+      td
+      td
+    tr
+      td
+      td
+      td
+    tr
+      td
+        |Subtotal:
+      td
+      td
+        = format('$%.2f', subTotal.round(2))
+    tr
+      td
+        |PST:&nbsp;
+        | %
+        = pstTaxAmount
+      td
+        - pstAmount = @province.pst.to_f * subTotal
+        = format('$%.2f', pstAmount.round(2))
+      td
+    tr
+      td
+        |GST:&nbsp;
+        | %
+        = gstTaxAmount
+      td
+        - gstAmount = @province.gst.to_f * subTotal
+        = format('$%.2f', gstAmount.round(2))
+      td
+    tr
+      td
+        |HST:&nbsp;
+        | %
+        = hstTaxAmount
+      td
+        - hstAmount = @province.hst.to_f * subTotal
+        = format('$%.2f', hstAmount.round(2))
+      td
+    tr
+      td
+        |Grand Total:
+      td
+        - grandTotal = subTotal + pstAmount + gstAmount + hstAmount
+        = format('$%.2f', grandTotal.round(2))
+      td

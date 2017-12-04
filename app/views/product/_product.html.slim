@@ -14,4 +14,7 @@
           p.card-text
             | Price: $#{product.price}
       td
-        = link_to 'Add to Cart', '#'
+      - if @products_in_cart.include?(product.id)
+        = link_to 'Remove from Cart', remove_product_from_cart_product_path(product), method: :post
+      - else
+        = link_to 'Add to Cart', add_to_cart_product_path(product), method: :post

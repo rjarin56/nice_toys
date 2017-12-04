@@ -1,0 +1,23 @@
+.cart-container
+  .heading
+    h1 Shopping Cart
+  = link_to "Remove all Product", remove_all_products_from_cart_cart_index_path, method: :post
+  - subTotal = 0
+  - @products_in_cart.each do |p|
+    p= p.product_name
+    / = form_tag(update_quantity_cart_path, method: :post) do
+    /   = hidden_field_tag(:id, p.id)
+    /   = text_field_tag(:quantity, 1)
+    /   = button_tag "Update quantity", class: "btn btn-outline-secondary"
+    |$
+    = p.price
+    - subTotal += p.price.to_f
+    p= link_to "Remove this product", remove_product_from_cart_cart_path(p), method: :post
+  h2 Order Summary
+  table
+    tr
+      th
+        |Subtotal
+        |$
+        = subTotal
+  = link_to "Proceed to check-out", customer_path

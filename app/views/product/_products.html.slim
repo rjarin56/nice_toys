@@ -7,9 +7,3 @@
   p= item.description
   .product-image
     = image_tag item.image
-  .order-wrapper
-    form[action="/add_to_cart"]
-      |  Quantity:
-      br
-      input[type="text" name="quantity"]
-      input[type="submit" value="Add to Cart"]
