@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   post 'cart/invoice', to: 'cart#invoice', as: 'invoice'
 
+  # post 'charges/new', to: 'charges#new', as: 'new'
+
   resources :product, only: [:index] do
     member do
       post :add_to_cart
@@ -34,6 +36,13 @@ Rails.application.routes.draw do
 
     collection do
       post :remove_all_products_from_cart
+    end
+  end
+
+  resources :charges, only: [:new, :create] do
+    member do
+      post :new
+      post :create
     end
   end
 

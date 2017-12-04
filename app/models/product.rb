@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category, foreign_key: :category_id
+  has_many :line_items
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
   validates :product_name, :category_id, :stock_quantity, presence: true
   validates :image, :attachment_presence => true

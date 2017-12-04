@@ -70,3 +70,5 @@
         - grandTotal = subTotal + pstAmount + gstAmount + hstAmount
         = format('$%.2f', grandTotal.round(2))
       td
+= link_to new_charge_path(amount: grandTotal.round(2)), method: 'post' do
+  button.btn.btn-outline-dark Proceed to Payment
