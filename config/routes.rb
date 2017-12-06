@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'product/:id', to: 'product#show', as: 'product', id: /\d+/
 
   # get 'cart/index', to: 'cart#index', as: 'cart_index'
-  get 'cart/customer', to: 'cart#customer', as: 'customer'
+  post 'cart/customer', to: 'cart#customer', as: 'customer'
 
   post 'cart/invoice', to: 'cart#invoice', as: 'invoice'
 

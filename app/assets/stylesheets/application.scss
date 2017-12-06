@@ -84,3 +84,20 @@
   margin: 0;
   float: right;
 }
+
+.cart-container table {
+  width: 1150px;
+  height: 1050px;
+}
+
+.cart-container.button-checkout{
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-container.button-back{
+  float: left;
+  margin: 0;
+  padding: 0;
+}

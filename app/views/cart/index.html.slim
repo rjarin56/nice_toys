@@ -3,21 +3,34 @@
     h1 Shopping Cart
   = link_to "Remove all Product", remove_all_products_from_cart_cart_index_path, method: :post
   - subTotal = 0
-  - @products_in_cart.each do |p|
-    p= p.product_name
-    / = form_tag(update_quantity_cart_path, method: :post) do
-    /   = hidden_field_tag(:id, p.id)
-    /   = text_field_tag(:quantity, 1)
-    /   = button_tag "Update quantity", class: "btn btn-outline-secondary"
-    |$
-    = p.price
-    - subTotal += p.price.to_f
-    p= link_to "Remove this product", remove_product_from_cart_cart_path(p), method: :post
-  h2 Order Summary
   table
+    - @products_in_cart.each do |p|
+      tr
+        th
+          = image_tag(p.image, size: "180")
+          = p.product_name
+        th
+        th
+          |$
+          = p.price
+          - subTotal += p.price.to_f
+        th
+          p= link_to "Remove this product", remove_product_from_cart_cart_path(p), method: :post
     tr
-      th
-        |Subtotal
-        |$
-        = subTotal
-  = link_to "Proceed to check-out", customer_path
+      td
+      td
+      td
+    tr
+      td
+        h2 Order Summary
+    tr
+      td
+        |Subtotal:
+      td
+      td
+        = format('$%.2f', subTotal.round(2))
+  .button-checkout
+    = link_to  customer_path, method: :post do
+      button.btn.btn-outline-dark Proceed to check-out
+  .button-back
+    p= link_to "Back", product_index_path

@@ -9,4 +9,9 @@ html
   body
     .container
       = render partial: 'common/header'
+      - if flash[:notice]
+        .alert.alert-warning.alert-dismissible.fade.show role="alert"
+          button.close aria-label="Close" data-dismiss="alert" type="button"
+            span aria-hidden="true"  ×
+          = flash[:notice]
       = yield
